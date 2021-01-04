@@ -1,4 +1,5 @@
 ﻿using Dev.FrontEnd.Site.Models;
+using Dev.FrontEnd.Site.Models.Interfaces.Vendas;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using System;
@@ -12,14 +13,16 @@ namespace Dev.FrontEnd.Site.Controllers
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
-
-        public HomeController(ILogger<HomeController> logger)
+        private readonly IPedidoRepository _pedidoRepository;
+        public HomeController(ILogger<HomeController> logger, IPedidoRepository pedido)
         {
             _logger = logger;
+            _pedidoRepository = pedido;
         }
 
         public IActionResult Index()
         {
+            var pedido = _pedidoRepository.ObterPedido();
             return View();
         }
 
