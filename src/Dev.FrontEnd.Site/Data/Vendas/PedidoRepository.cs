@@ -9,10 +9,8 @@ namespace Dev.FrontEnd.Site.Data.Vendas
 {
     public class PedidoRepository : IPedidoRepository
     {
-        private readonly IPedidoRepository PedidoRepository_;
-        public PedidoRepository(IPedidoRepository pedidorepository)
+        public PedidoRepository()
         {
-            PedidoRepository_ = pedidorepository;
         }
         public Pedido ObterPedido()
         {
